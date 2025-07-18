@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 function Navigation() {
   return(
     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
