@@ -21,7 +21,7 @@ const Firestore = {
         });
         resolve(docs);
       } catch (e) {
-        console.log("Read Log:", e);
+        console.log(e);
       }
     });
   },
@@ -35,11 +35,10 @@ const Firestore = {
           title: inputs.title,
           path: inputs.path,
           createdAt: serverTimestamp(),
+          user: inputs.user
         });
         resolve("new doc successfully inserted");
-      } catch (e) {
-          console.log("Write Doc  Log:", e);
-      }
+      } catch (e) {}
     });
   },
 };
