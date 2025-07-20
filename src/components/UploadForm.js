@@ -1,6 +1,5 @@
 import { useMemo,  useContext } from "react"
-//import { Context } from "../context/FirestoreContext"
-import { Context } from "../context/FireStoreContext";
+import { Context } from "../context/FireStoreContext"
 import { useAuthContext } from "../context/AuthContext";
 import Firestore from "../handlers/firestore";
 import Storage from "../handlers/storage";
@@ -26,7 +25,7 @@ const Preview = () => {
 };
 
 const UploadForm = () => {
-  const { dispatch, state, read  } = useContext(Context)
+  const { dispatch, state, read } = useContext(Context)
   const { currentUser } = useAuthContext()
   const { isCollapsed : isVisible, inputs  } = state // destructuring the current state
 
@@ -39,8 +38,7 @@ const UploadForm = () => {
     .then(downloadFile)
     .then(url => {
       writeDoc({...inputs, path: url, user: username.toLowerCase()}, "stocks").then(() => {
-        // dispatch({ type: 'setItem'})
-        read();
+        read()
         dispatch({ type: "collapse", payload: { bool: false }})
       })
     })
